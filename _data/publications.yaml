@@ -1,6 +1,6 @@
 papers:
 
-  - title: "Why Position Matters: Investigating Order Sensitivity and Robustness in In-context Learning"
+  - title: "In-context Learning"
     authors: "<b>Minju Hong</b>"
     venue: "Arxiv'25: arXiv preprint. 2025."
     paper_pdf: "/assets/publications/2024_supernotes/paper.pdf"
