@@ -84,13 +84,15 @@ a::selection, p::selection, span::selection, h1::selection, h2::selection, h3::s
 
 
 .horizbox {
-  display: flex;
-  justify-content: space-between; /* Pushes items to opposite sides */
-  width: 100%; /* Ensures full width */
+  display: grid;
+    grid-template-columns: 1fr auto; /* Left takes full width, right takes only necessary space */
+    align-items: end; /* Align right text to the last row of left text */
+    width: 100%;
 }
 
 .left {
   text-align: left;
+    word-wrap: break-word;
 }
 
 .right {
