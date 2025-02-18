@@ -77,6 +77,27 @@ a::selection, p::selection, span::selection, h1::selection, h2::selection, h3::s
   text-decoration: none; /* Remove underline for links */
 }
 
+.right {
+  text-align: right;
+
+}
+
+
+.horizbox {
+  display: flex;
+  justify-content: space-between; /* Pushes items to opposite sides */
+  width: 100%; /* Ensures full width */
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+
 /* Default link style */
 a {
   color: orange; /* Change to your preferred color */
