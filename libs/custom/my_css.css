@@ -71,6 +71,34 @@ h4 {
   padding: 3px;
 }
 
+/* Change text color on hover globally */
+a::selection, p::selection, span::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, div::selection, strong::selection, sup::selection, span::selection, b::selection, li::selection, ul::selection, i::selection, section::selection, img::selection, nav::selection {
+  color: orange; /* Change to your preferred color */
+  text-decoration: none; /* Remove underline for links */
+}
+
+/* Default link style */
+a {
+  color: orange; /* Change to your preferred color */
+  text-decoration:none; /* Removes underline */
+  font-weight: bold;
+}
+
+/* Hover effect */
+a:hover {
+  color: rgba(216,83,82); /* Change to desired hover color */
+  text-decoration:none; /* Optional: add underline on hover */
+}
+
+/* Active (clicked) link */
+a:active {
+  color: darkred; /* Change to your preferred active color */
+}
+
+/* Visited link */
+
+
+
 /* Larger than phone */
 @media (min-width: 550px) {
   .header {
