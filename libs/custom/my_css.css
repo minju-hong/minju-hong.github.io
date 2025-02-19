@@ -120,6 +120,9 @@ a:active {
 
 /* Visited link */
 
+.grey{
+  color: rgba(170,170,170);
+}
 
 
 /* Larger than phone */
