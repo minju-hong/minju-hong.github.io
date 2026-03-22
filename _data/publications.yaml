@@ -1,8 +1,8 @@
 papers:
 
-  - title: "In-context Learning"
-    authors: "<b>Minju Hong</b>"
-    venue: "Arxiv'25: arXiv preprint. 2025."
-    paper_pdf: "/assets/publications/2024_supernotes/paper.pdf"
+  - title: "Regularized Online RLHF with Generalized Bilinear Preferencesg"
+    authors: "Junghyun Lee, <b>Minju Hong</b>, Kwang-Sung Jun, Chulhee Yun, Se-Young Yun"
+    venue: "Arxiv'26: arXiv preprint. 2026."
+    # paper_pdf: "/assets/publications/2024_supernotes/paper.pdf"
     code: "https://github.com/minju-hong"
     selected: y
