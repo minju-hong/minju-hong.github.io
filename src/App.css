@@ -1,0 +1,624 @@
+/* Layout rules transcribed from the reference sites, retuned to the Spring palette. */
+
+#app {
+  max-width: 1168px;
+  margin: 0 auto;
+  /* Top padding clears the fixed nav (~56px) and then some. 7.25rem leaves a
+     60px gap above the name: 6rem (40px) read as too tight, 8.5rem (80px) as
+     too loose, so this is the midpoint. */
+  padding: 7.25rem 1rem 0;
+}
+
+/* --- Sticky nav --- */
+
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  padding: 1rem;
+  box-sizing: border-box;
+  background: #fffffffc;
+  display: flex;
+  align-items: center;
+}
+
+/* The 1px gradient hairline under the bar. */
+#nav:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(-45deg, var(--accent-bright), var(--med-accent));
+}
+
+#nav-links {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#nav-links a {
+  font-family: monospace;
+  /* Root-relative so it is unaffected by whatever font-size Mantine's base
+     styles put on the ancestors. */
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--dark-gray);
+  /* Overrides the global bold link weight: the nav uses weight to mark the
+     active section instead, so the idle state has to stay regular. */
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+#nav-links a:hover {
+  color: var(--text);
+}
+
+#nav-links a.selected {
+  color: var(--text);
+  font-weight: 700;
+  pointer-events: none;
+}
+
+#burger-icon {
+  display: none;
+}
+
+/* Below 767px (the reference's breakpoint) the links become a dropdown panel. */
+@media screen and (max-width: 767px) {
+  #burger-icon {
+    display: block;
+    margin-right: auto;
+  }
+
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    /* Solid, not the reference's translucent panel: at 5% bleed the page
+       content behind still showed through and made the links hard to read. */
+    background-color: #fff;
+    box-shadow: 0 8px 16px #00000014;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    padding: 0.5rem 0 0.75rem;
+    box-sizing: border-box;
+    /* Vertical padding on each link already spaces them; the row gap would
+       otherwise double up and stretch the panel down the page. */
+    gap: 0;
+  }
+
+  #nav-links[data-open='true'] {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  #nav-links a {
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+  }
+}
+
+/* --- Sections --- */
+
+section {
+  margin-top: 4rem;
+}
+
+section.smaller-top {
+  margin-top: 1.6rem;
+}
+
+section h2 {
+  position: relative;
+  margin-bottom: 0.5rem;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* The short accent bar that sits above every section heading. */
+section h2:before {
+  content: '';
+  position: absolute;
+  width: 2.5em;
+  height: 0.5rem;
+  background-color: var(--accent-bright);
+  top: -1.5rem;
+}
+
+/* Keeps the fixed nav from covering a heading you jump to.
+   scroll-margin-top rather than the older `position:relative; top:-100px`
+   trick: it is what the property is for, and it applies to EVERY anchor —
+   the old rule was scoped to `section .anchor`, so #about (which sits directly
+   in #home, not in a <section>) got no offset and the About link landed 116px
+   down with the masthead half under the nav. */
+.anchor {
+  scroll-margin-top: 100px;
+}
+
+/* About *is* the top of the page. A margin larger than the anchor's offset
+   clamps the jump to y = 0, so the name is never cropped. */
+#about.anchor {
+  scroll-margin-top: 400px;
+}
+
+/* --- Masthead --- */
+
+#masthead {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  /* Portrait sits vertically centred against the text column. */
+  align-items: center;
+}
+
+#prof-pic-contain {
+  box-shadow: 0 0 25px #0000001f;
+  transition: 0.3s;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#prof-pic-contain:hover {
+  transform: scale(1.02);
+}
+
+#prof-pic {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: block;
+}
+
+#masthead h1 {
+  font-size: 38px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.affiliation-line {
+  margin: 0.2rem 0 0.35rem !important;
+  color: var(--dark-gray);
+  font-size: 1rem;
+}
+
+.email-link {
+  font-size: 0.95rem;
+}
+
+#masthead p {
+  margin: 0.75rem 0;
+}
+
+@media (max-width: 48em) {
+  #masthead {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* The reference caps the portrait at ~160px and keeps it left-aligned
+     rather than letting it grow to the full column width. */
+  #prof-pic-contain {
+    max-width: 160px;
+  }
+}
+
+/* --- Social row (icon + label, below the intro) --- */
+
+.icons {
+  margin-top: 1.25rem;
+  row-gap: 0.5rem;
+}
+
+.icons a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent);
+  font-size: 0.95rem;
+  transition: color 0.25s ease;
+}
+
+.icons a svg {
+  font-size: 1.05rem;
+}
+
+.icons a:hover {
+  color: var(--text);
+}
+
+/* --- News --- */
+
+#update-contain {
+  margin-top: 0.7rem;
+}
+
+/* Dates never wrap. "Feb 2026" needed 70px in an 80px column — enough at
+   1440px, but a fallback font (before Noto Sans loads) or a zoom step eats that
+   margin and breaks it into "Feb" / "2026". nowrap removes the possibility. */
+.date {
+  white-space: nowrap;
+}
+
+/* Each half of a split date range sits on its own line (see DateRange.tsx). */
+.date-part {
+  display: block;
+}
+
+/* Shared by the news, experience, teaching and affiliation lists: date column,
+   then the detail.
+   The date column is minmax(base, max-content), NOT a fixed width. Dates are
+   `white-space: nowrap`, so a fixed column silently overflows into the detail
+   column the moment a label is wider than it — which is exactly what
+   "Spring & Fall 2025" did at 120px. max-content makes the column grow to the
+   widest label in that list instead, so a spill is structurally impossible; the
+   base value only sets a consistent minimum across sections. */
+.update {
+  display: grid;
+  grid-template-columns: minmax(95px, max-content) auto;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+#update-contain .update p {
+  margin: 0 0 0.4rem;
+}
+
+#update-contain .update .update-tag:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.update-tag {
+  text-transform: uppercase;
+}
+
+@media (max-width: 36em) {
+  .update {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
+/* --- Affiliations (reuses the news row grid) --- */
+
+#affiliation-contain {
+  margin-top: 0.7rem;
+}
+
+/* Now that ranges break after the dash, the column only has to fit the longer
+   half ("Mar. 2024 –") rather than the whole range. */
+#affiliation-contain .update {
+  grid-template-columns: minmax(120px, max-content) auto;
+}
+
+@media (max-width: 36em) {
+  #affiliation-contain .update {
+    grid-template-columns: 1fr;
+  }
+}
+
+.affiliation-org {
+  margin: 0;
+  font-weight: 700;
+}
+
+.affiliation-role {
+  margin: 0.1rem 0 0;
+  font-size: 0.95rem;
+}
+
+.affiliation-detail {
+  margin: 0.1rem 0 0;
+  font-size: 0.95rem;
+  color: var(--dark-gray);
+}
+
+/* Organisation names are headings that happen to link, so they stay black.
+   The weight is restated because the global `a` rule's 600 would otherwise
+   beat the 700 inherited from .affiliation-org. */
+.affiliation-link {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.affiliation-link:hover {
+  color: var(--accent);
+}
+
+/* --- Research: Selected / All toggle --- */
+
+.pub-toggle {
+  margin: 2rem 0 1.25rem;
+}
+
+.toggle-button {
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.toggle-button:hover {
+  background-color: var(--light-accent);
+  color: var(--text);
+}
+
+.toggle-button[data-active='true'] {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* --- Research: publication list (no thumbnail) --- */
+
+#pubs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.pub-title {
+  display: block;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  transition: color 0.25s ease;
+}
+
+.pub-title:hover {
+  color: var(--accent);
+}
+
+.pub-authors {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+}
+
+.pub-authors .own-name {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.pub-venue {
+  margin: 0.1rem 0 0;
+  font-size: 0.95rem;
+  color: var(--dark-gray);
+}
+
+.pub-award {
+  margin: 0.15rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--award);
+}
+
+.pub-links {
+  margin-top: 0.5rem;
+}
+
+/* Link pills, shared by publications and anywhere else that needs them. */
+.link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+  padding: 0.25rem 0.55rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.link-pill:hover {
+  background-color: var(--lightest-accent);
+  color: var(--text);
+}
+
+/* --- Research experience (reuses the news row grid) --- */
+
+.experience-header {
+  padding-top: 2rem;
+}
+
+#experience-contain .update,
+#teaching-contain .update {
+  grid-template-columns: minmax(120px, max-content) auto;
+}
+
+@media (max-width: 36em) {
+  #experience-contain .update,
+  #teaching-contain .update {
+    grid-template-columns: 1fr;
+  }
+}
+
+#experience-contain .update:not(:last-child),
+#teaching-contain .update:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
+/* --- Miscellaneous --- */
+
+#misc-contain {
+  margin-top: 1.25rem;
+}
+
+.misc-item:not(:last-child) {
+  margin-bottom: 1.1rem;
+}
+
+.misc-title {
+  font-size: 1rem;
+}
+
+.misc-period {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--med-gray);
+}
+
+.misc-desc {
+  margin: 0.15rem 0 0;
+  font-size: 0.95rem;
+}
+
+.teaching-header {
+  padding-top: 2rem;
+}
+
+/* --- Violin videos --- */
+
+#video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.video-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.video-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.35rem;
+  overflow: hidden;
+  background-color: var(--light-gray);
+}
+
+.video-thumb button {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.video-thumb iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.video-thumb button:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.92);
+}
+
+/* Play affordance: a rounded badge with a triangle, drawn in CSS. */
+.play-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3.25rem;
+  height: 2.3rem;
+  border-radius: 0.5rem;
+  background-color: #000000a6;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.play-badge:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  border-style: solid;
+  border-width: 0.45rem 0 0.45rem 0.75rem;
+  border-color: transparent transparent transparent #fff;
+}
+
+.video-thumb button:hover .play-badge {
+  background-color: var(--accent);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.video-title {
+  display: block;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  transition: color 0.25s ease;
+}
+
+.video-title:hover {
+  color: var(--accent);
+}
+
+.video-performer {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+  color: var(--dark-gray);
+}
+
+.video-desc {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 48em) {
+  .video-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* --- Show More --- */
+
+.show-more {
+  color: var(--accent);
+  font-size: smaller;
+  transition: color 0.25s ease;
+}
+
+.show-more:hover {
+  color: var(--text);
+}
+
+/* --- Footer --- */
+
+#footer {
+  color: var(--dark-gray);
+  font-size: smaller;
+  margin: 4rem 0 2rem;
+  text-align: center;
+}
+
+.credit {
+  margin: 1.25rem 0 0;
+  font-size: 0.8rem;
+  color: var(--med-gray);
+}
+
+.back-to-top {
+  color: var(--med-gray);
+}
+
+.back-to-top:hover {
+  color: var(--text);
+}

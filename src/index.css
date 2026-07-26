@@ -1,0 +1,164 @@
+/**
+ * Palette: a single green, #2C6602, with a ramp mixed toward white.
+ *
+ * #2C6602 reaches 6.98:1 on white, so it passes AA for text and is used
+ * directly for links. Unlike the earlier #0F4001 it also sits 2.11:1 away from
+ * the page black, which is enough separation for "hover turns the link black"
+ * to actually read — so that rule is in force here.
+ */
+:root {
+  /* Green ramp — the primary accent */
+  --lightest-accent: #f2f6f0;
+  --light-accent: #c4d4b8;
+  --med-accent: #80a367;
+  --accent-mid: #5f8b3f;
+  --accent-bright: #41751b;
+  --accent: #2c6602;
+  --deep-accent: #1f4701;
+
+  /* Secondary tints, mixed from the same hue so the page stays one family */
+  --lightest-accent2: #f2f6f0;
+  --light-accent2: #e1eadc;
+  --med-accent2: #a2bc90;
+  --accent2: #41751b;
+
+  --lightest-accent3: #f2f6f0;
+  --light-accent3: #e1eadc;
+  --med-accent3: #a2bc90;
+  --accent3: #5f8b3f;
+
+  /* Award line: the deepest shade, so honours read as emphasis against links. */
+  --award: #1f4701;
+
+  /* Neutrals */
+  --light-gray: #f2f3f2;
+  --gray: #d6d9d5;
+  --med-gray: #888d86;
+  --dark-gray: #545852;
+  --text: #24292a;
+
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+/**
+ * Text selection: no blue highlight. The background stays transparent and the
+ * text recolours to the accent instead.
+ */
+::selection {
+  background: transparent;
+  color: var(--accent-bright);
+}
+::-moz-selection {
+  background: transparent;
+  color: var(--accent-bright);
+}
+
+/**
+ * Links: theme colour, bold, no underline. Hover turns them black — with no
+ * underline, the colour flip is the whole affordance, and #2C6602 is far enough
+ * from black (2.11:1) for it to register.
+ *
+ * Links that are already black by default (paper titles, organisation names)
+ * invert this and hover *to* the accent, since black-on-black would give no
+ * feedback at all. Those overrides live in App.css.
+ */
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+a:hover {
+  color: var(--text);
+}
+
+/* --- Utility classes --- */
+
+.monospace {
+  font-family: monospace;
+}
+.smaller {
+  font-size: smaller;
+}
+.larger {
+  font-size: larger;
+}
+.emphasis {
+  font-weight: 500;
+}
+.smooth {
+  transition: 0.3s;
+}
+
+.accent {
+  color: var(--accent);
+}
+.accent2 {
+  color: var(--accent2);
+}
+.accent3 {
+  color: var(--accent3);
+}
+.accent-gray {
+  color: var(--med-gray);
+}
+
+.italic-text {
+  font-style: italic;
+  color: var(--dark-gray);
+}
+.award-text {
+  font-size: 0.875rem;
+  color: var(--dark-gray);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Section subheadings stay plain black — no gradient fills. */
+.section-subheader {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.my-button {
+  font-family: monospace;
+}
+.my-button.disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.hover-expand {
+  transition: transform 0.3s ease;
+}
+.hover-expand:hover {
+  transform: scale(1.1);
+}
+
+.fade-in {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
