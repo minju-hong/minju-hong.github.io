@@ -3,7 +3,7 @@
  *
  * The KAIST Concert Hall coordination that appeared on the old site is not in
  * the CV, so it is left out rather than carried forward unverified. The
- * orchestra work lives in the Violin section instead.
+ * orchestra work lives in the Music section instead.
  */
 
 export interface MiscItem {

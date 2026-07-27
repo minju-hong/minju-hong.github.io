@@ -30,16 +30,16 @@ export default function App() {
             <Research />
           </Section>
 
-          <Section id="violin" title="Violin 🎻">
+          <Section id="affiliations" title="Affiliations 🎓">
+            <Affiliations />
+          </Section>
+
+          <Section id="music" title="Music 🎻">
             <Videos />
           </Section>
 
           <Section id="misc" title="Miscellaneous 🎪">
             <Misc />
-          </Section>
-
-          <Section id="affiliations" title="Affiliations 🎓">
-            <Affiliations />
           </Section>
         </Stack>
         <Footer />
