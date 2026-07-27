@@ -31,7 +31,8 @@ export interface ResearchPosition {
   href?: string
   period: string
   role: string
-  description: string
+  /** Bullet points shown under the role. */
+  description: string[]
 }
 
 /**
@@ -49,38 +50,44 @@ export const researchExperience: ResearchPosition[] = [
     href: 'https://www.lti.cs.cmu.edu/',
     period: 'May 2026 – Present',
     role: 'Visiting Researcher — Modeling Subjective Annotations in LLM Alignment',
-    description:
-      'Comparing Bradley–Terry and many-facet item-response models for representing subjective human annotations and annotator disagreement, and investigating multidimensional latent preference models for pluralistic alignment. Supervised by Prof. Maarten Sap, mentored by Dr. Vasudha Varadarajan.',
+    description: [
+      'Investigating methods for representing subjective human annotations and annotator disagreemen. Supervised by Prof. Maarten Sap, mentored by Dr. Vasudha Varadarajan.',
+    ],
   },
   {
     organisation: 'OptiML Lab, KAIST AI',
     period: 'Mar 2026 – Present',
-    role: 'Research Collaboration — Implicit Bias of Softmax Dynamics in Bilinear Zero-Sum Games',
-    description:
-      'Studying equilibrium selection and last-iterate behaviour of softmax-parameterised self-play dynamics in symmetric zero-sum games. With Prof. Chulhee Yun.',
+    role: 'Research Collaboration — Implicit Bias of Softmax Dynamics',
+    description: [
+      'Studying equilibrium selection and last-iterate behavior of softmax-parameterized dynamics. With Prof. Chulhee Yun, Changmin Kang, and Junghyun Lee.',
+    ],
   },
   {
     organisation: 'IIDS Lab, KAIST',
     href: 'https://iids.kaist.ac.kr/',
     period: 'Mar 2024 – Feb 2026',
     role: 'Graduate Research Assistant',
-    description:
-      'M.S. research on regularized online RLHF under generalized bilinear preference models, contributing regret analyses for regularized self-play algorithms. Also investigated the theoretical foundations of order sensitivity in in-context learning. Advised by Prof. Hye Won Chung.',
+    description: [
+      'M.S. research on regularized online RLHF under generalized bilinear preference models, contributing regret analyses for regularized self-play algorithms.',
+      'Investigated the theoretical foundations of order sensitivity in in-context learning. Advised by Prof. Hye Won Chung.',
+    ],
   },
   {
     organisation: 'Theoretical Foundations of AI Group, TU Munich',
     period: 'Apr 2023 – Sep 2023',
     role: 'Undergraduate Researcher — Information Spread Dynamics',
-    description:
+    description: [
       'Studied misinformation mitigation on graph networks, developing and evaluating blocker selection algorithms. Advised by Prof. Debarghya Ghoshdastidar.',
+    ],
   },
   {
     organisation: 'IIDS Lab, KAIST',
     href: 'https://iids.kaist.ac.kr/',
     period: 'Mar 2021 – Dec 2022',
     role: 'Undergraduate Researcher — Random Graph Matching',
-    description:
+    description: [
       'Independent study on random graph theory, investigating algorithmic strategies for matching in stochastic block models. Advised by Prof. Hye Won Chung.',
+    ],
   },
 ]
 

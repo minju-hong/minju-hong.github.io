@@ -102,7 +102,11 @@ export function Research() {
                 )}
               </p>
               <p className="affiliation-role">{post.role}</p>
-              <p className="affiliation-detail">{post.description}</p>
+              <ul className="experience-bullets">
+                {post.description.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}

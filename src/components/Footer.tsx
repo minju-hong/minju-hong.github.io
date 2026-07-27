@@ -19,7 +19,7 @@ export function Footer() {
         <a href="https://catherinesyeh.github.io/" target="_blank" rel="noreferrer">
           Catherine Yeh
         </a>
-        .
+        's wonderful work.
       </p>
     </div>
   )

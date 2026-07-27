@@ -13,15 +13,31 @@ export interface Video {
 }
 
 export const videosIntro =
-  'I play the violin and piano, and served as concertmaster of the KAIST Orchestra from 2020 to 2021, leading more than eighty members and organising chamber-music initiatives through the pandemic. Click a thumbnail to play a recording here on the page.'
+  'I love playing the violin and piano, and have performed in various orchestras and chamber music groups. Here are some of my favorites!'
 
 export const videos: Video[] = [
   {
     youtubeId: 'we2T-QZCOhU',
-    title: 'R. Schumann — Piano Quartet, Op. 47, 1st Movement',
+    title: 'R. Schumann - Piano Quartet in E Flat Major, Op.47 : I. Sostenuto assai - Allegro, ma non troppo',
     performer: 'Ama Quartet',
     description:
-      'Our quartet placed 3rd at the 3rd Hanbyeol Competition with this performance.',
+      'We placed 3rd at the 3rd Hanbyeol Competition with this performance!',
+  },
+  // Placeholder — replace youtubeId / copy when a recording is ready.
+  {
+    youtubeId: '0JxF2zz3Z5I',
+    title: 'A. Piazzolla - The Four Seasons of Buenos Aires',
+    performer: 'Ama Trio',
+    description:
+      'Our first house concert with a full program',
+  },
+  // Placeholder — replace youtubeId / copy when a recording is ready.
+  {
+    youtubeId: 'ncJU51ZK60I',
+    title: 'R. Schumann - Piano Quartet in E Flat Major, Op.47 : III. Andante cantabile',
+    performer: 'KAIST Winter Chamber',
+    description:
+      'At the 2022 Fall KAIST Year-end Concert',
   },
 ]
 

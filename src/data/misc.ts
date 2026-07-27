@@ -13,7 +13,7 @@ export interface MiscItem {
 }
 
 export const miscIntro =
-  'I enjoy planning and organising events, and have held a few service and leadership roles.'
+  'I enjoy planning and organizing events, and have held a few service and leadership roles.'
 
 export const misc: MiscItem[] = [
   {

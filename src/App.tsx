@@ -22,7 +22,7 @@ export default function App() {
           <span id="top" />
           <Masthead />
 
-          <Section id="news" title="News + Updates">
+          <Section id="news" title="News">
             <News />
           </Section>
 

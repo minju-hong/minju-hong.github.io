@@ -48,8 +48,8 @@ export function Videos() {
     <>
       <p>{videosIntro}</p>
       <div id="video-list">
-        {videos.map((video) => (
-          <VideoRow key={video.youtubeId} video={video} />
+        {videos.map((video, i) => (
+          <VideoRow key={`${video.youtubeId}-${i}`} video={video} />
         ))}
       </div>
     </>
