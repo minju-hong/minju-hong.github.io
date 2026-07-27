@@ -57,9 +57,9 @@ export const researchExperience: ResearchPosition[] = [
   {
     organisation: 'OptiML Lab, KAIST AI',
     period: 'Mar 2026 – Present',
-    role: 'Research Collaboration — Implicit Bias of Softmax Dynamics',
+    role: 'Research Collaboration — Implicit Bias and Learning Dynamics',
     description: [
-      'Studying optimization dynamics of softmax-parameterization. With Prof. Chulhee Yun, Changmin Kang, and Junghyun Lee.',
+      'Characterizing the learning dynamics and implicit regularization of policies. With Prof. Chulhee Yun, Changmin Kang, and Junghyun Lee.',
     ],
   },
   {
