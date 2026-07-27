@@ -51,7 +51,7 @@ export const researchExperience: ResearchPosition[] = [
     period: 'May 2026 – Present',
     role: 'Visiting Researcher — Modeling Subjective Annotations in LLM Alignment',
     description: [
-      'Investigating methods for representing subjective human annotations and annotator disagreemen. Supervised by Prof. Maarten Sap, mentored by Dr. Vasudha Varadarajan.',
+      'Investigating methods for representing subjective human annotations and annotator disagreement. Supervised by Prof. Maarten Sap, mentored by Dr. Vasudha Varadarajan.',
     ],
   },
   {
