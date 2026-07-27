@@ -51,7 +51,7 @@ export const researchExperience: ResearchPosition[] = [
     period: 'May 2026 – Present',
     role: 'Visiting Researcher — Modeling Subjective Annotations in LLM Alignment',
     description: [
-      'Investigating methods for representing subjective human annotations and annotator disagreement. Supervised by Prof. Maarten Sap, mentored by Dr. Vasudha Varadarajan.',
+      'Investigating methods for representing subjective human annotations. Supervised by Prof. Maarten Sap, mentored by Dr. Vasudha Varadarajan.',
     ],
   },
   {
@@ -59,7 +59,7 @@ export const researchExperience: ResearchPosition[] = [
     period: 'Mar 2026 – Present',
     role: 'Research Collaboration — Implicit Bias of Softmax Dynamics',
     description: [
-      'Studying equilibrium selection and last-iterate behavior of softmax-parameterized dynamics. With Prof. Chulhee Yun, Changmin Kang, and Junghyun Lee.',
+      'Studying optimization dynamics of softmax-parameterization. With Prof. Chulhee Yun, Changmin Kang, and Junghyun Lee.',
     ],
   },
   {
