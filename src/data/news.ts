@@ -10,14 +10,19 @@ export interface NewsItem {
 }
 
 export const news: NewsItem[] = [
+ {
+    date: 'May 2026',
+    html: 'Our paper won the Outstanding Paper Award at <b>CKAIA 2026</b>🏅!',
+    tags: ['award'],
+  },
   {
     date: 'May 2026',
-    html: 'Started as a Visiting Researcher at the <a href="https://www.lti.cs.cmu.edu/" target="_blank" rel="noreferrer">Language Technologies Institute</a>, Carnegie Mellon University 🇺🇸.',
+    html: 'Started as a Research Intern at the <a href="https://www.lti.cs.cmu.edu/" target="_blank" rel="noreferrer">Language Technologies Institute</a>, Carnegie Mellon University.',
     tags: ['milestone'],
   },
   {
     date: 'May 2026',
-    html: '<a href="https://arxiv.org/abs/2602.23116" target="_blank" rel="noreferrer">Provably Efficient Regularized Online RLHF with Generalized Bilinear Preferences</a> was accepted to the <b>ICML 2026 Workshop on Pluralistic Alignment</b> and to <b>CKAIA 2026</b>.',
+    html: '<a href="https://arxiv.org/abs/2602.23116" target="_blank" rel="noreferrer">Provably Efficient Regularized Online RLHF with Generalized Bilinear Preferences</a> was accepted to the <b>ICML 2026 Workshop on Pluralistic Alignment</b> and to <b>CKAIA 2026 </b>.',
     tags: ['paper'],
   },
   // {

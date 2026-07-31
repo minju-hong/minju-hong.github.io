@@ -19,7 +19,7 @@ export const affiliations: Affiliation[] = [
   {
     period: 'May 2026 – Present',
     organisation: 'Carnegie Mellon University',
-    role: 'Visiting Researcher, Language Technologies Institute',
+    role: 'Research Intern, Language Technologies Institute',
     detail: 'Pittsburgh, PA, USA',
     href: 'https://www.lti.cs.cmu.edu/',
   },
