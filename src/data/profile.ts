@@ -21,10 +21,6 @@ export const profile = {
   affiliation: 'Language Technologies Institute, Carnegie Mellon University',
   emails: [
     {
-      display: 'minju23 [at] alumni.kaist.ac.kr',
-      href: 'mailto:minju23@alumni.kaist.ac.kr',
-    },
-    {
       display: 'minjuh [at] andrew.cmu.edu',
       href: 'mailto:minjuh@andrew.cmu.edu',
     },
