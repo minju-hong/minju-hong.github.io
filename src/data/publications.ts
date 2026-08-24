@@ -23,8 +23,11 @@ export interface Publication {
 /** Rendered bold + underlined wherever it appears in an author list. */
 export const authorName = 'Minju Hong'
 
-export const researchIntro =
-  'My research is on the theoretical foundations of RLHF, preference learning and pluralistic LLM alignment, and optimization dynamics in games.'
+/** Research blurb paragraphs. `html` is trusted, authored copy — not user input. */
+export const researchIntro = [
+  'I am interested in the theoretical foundations of <b>trustworthy and aligned machine learning</b>. My current research spans RLHF and preference learning, pluralistic alignment, and optimization dynamics and implicit bias. More broadly, I am interested in developing a mathematical understanding of learning and alignment mechanisms in modern language models, with particular interest in robustness and fairness.',
+  'Questions that motivate my research include: How can we learn reliably from heterogeneous, noisy, or conflicting preferences? How do optimization dynamics and parameterization determine which solutions learning algorithms select? How can we design learning and alignment methods with meaningful robustness and fairness guarantees?',
+]
 
 export interface ResearchPosition {
   organisation: string

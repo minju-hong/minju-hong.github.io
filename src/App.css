@@ -190,8 +190,17 @@ section h2:before {
   font-size: 1rem;
 }
 
+.email-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.25rem;
+}
+
 .email-link {
+  display: block;
   font-size: 0.95rem;
+  width: fit-content;
 }
 
 #masthead p {

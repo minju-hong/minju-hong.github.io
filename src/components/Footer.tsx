@@ -4,10 +4,12 @@ import { profile } from '../data/profile'
 export function Footer() {
   return (
     <div id="footer">
-      <Group justify="center">
-        <a className="accent monospace smaller" href={profile.emailHref}>
-          {profile.emailDisplay}
-        </a>
+      <Group justify="center" gap={4} style={{ flexDirection: 'column' }}>
+        {profile.emails.map((email) => (
+          <a key={email.href} className="accent monospace smaller" href={email.href}>
+            {email.display}
+          </a>
+        ))}
       </Group>
       <Group justify="center" mt="xs">
         <a className="my-button smaller back-to-top" href="#top">

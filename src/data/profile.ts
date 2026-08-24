@@ -19,15 +19,23 @@ export const profile = {
   name: 'Minju Hong',
   /** Shown under the name, above the email. */
   affiliation: 'Language Technologies Institute, Carnegie Mellon University',
-  emailDisplay: 'minju23 [at] alumni.kaist.ac.kr',
-  emailHref: 'mailto:minju23@alumni.kaist.ac.kr',
+  emails: [
+    {
+      display: 'minju23 [at] alumni.kaist.ac.kr',
+      href: 'mailto:minju23@alumni.kaist.ac.kr',
+    },
+    {
+      display: 'minjuh [at] andrew.cmu.edu',
+      href: 'mailto:minjuh@andrew.cmu.edu',
+    },
+  ],
   portrait: '/prof-pic.jpg',
   cv: '/cv.pdf',
 
   /** Masthead paragraphs. `html` is trusted, authored copy — not user input. */
   intro: [
     'Hi! I am currently a Research Intern at the <a href="https://www.lti.cs.cmu.edu/" target="_blank" rel="noreferrer">Language Technologies Institute</a> at <a href="https://www.cmu.edu/" target="_blank" rel="noreferrer">Carnegie Mellon University</a>, working closely with <a href="https://maartensap.com" target="_blank" rel="noreferrer">Prof. Maarten Sap</a> and <a href="https://vasevarad.github.io" target="_blank" rel="noreferrer">Dr. Vasudha Varadarajan</a>. I completed my M.Sc. in <a href="https://ee.kaist.ac.kr/en/" target="_blank" rel="noreferrer">Electrical Engineering at KAIST</a> in 2026, advised by <a href="https://iids.kaist.ac.kr/" target="_blank" rel="noreferrer">Prof. Hye Won Chung</a>. Before that, I earned a B.Sc. in <a href="https://math.kaist.ac.kr/en/" target="_blank" rel="noreferrer">Mathematical Sciences</a> and <a href="https://ee.kaist.ac.kr/en/" target="_blank" rel="noreferrer">Electrical Engineering (double major)</a> at KAIST.',
-    'My research focuses on the <b>theoretical foundations of RLHF</b>, <b>preference learning and pluralistic LLM alignment</b>, and <b>optimization dynamics in games</b>.',
+    'My research focuses on the <b>theoretical foundations of RLHF and preference learning, pluralistic LLM alignment, and optimization dynamics and implicit bias</b>. More broadly, I am interested in the mathematical foundations of machine learning, including theoretical questions in robustness and fairness and the mechanisms underlying language-model training and alignment.',
     'Outside of research I love playing the violin and piano, and I enjoy planning and organizing social events.',
     'Please feel free to reach out if you want to chat about research, potential collaborations, or anything else!',
   ],

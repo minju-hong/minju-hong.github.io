@@ -65,7 +65,9 @@ export function Research() {
 
   return (
     <>
-      <p>{researchIntro}</p>
+      {researchIntro.map((paragraph, i) => (
+        <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} />
+      ))}
 
       <Group className="pub-toggle" gap="xs">
         {(['selected', 'all'] as const).map((option) => (

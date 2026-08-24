@@ -12,9 +12,17 @@ export function Masthead() {
       <div>
         <h1>{profile.name}</h1>
         {profile.affiliation && <p className="affiliation-line">{profile.affiliation}</p>}
-        <a className="monospace accent email-link" href={profile.emailHref}>
-          {profile.emailDisplay}
-        </a>
+        <div className="email-links">
+          {profile.emails.map((email) => (
+            <a
+              key={email.href}
+              className="monospace accent email-link"
+              href={email.href}
+            >
+              {email.display}
+            </a>
+          ))}
+        </div>
 
         {profile.intro.map((paragraph, i) => (
           // Authored copy, not user input — safe to render as HTML so it can carry links.
