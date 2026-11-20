@@ -17,9 +17,13 @@ export interface SocialLink {
 
 export const profile = {
   name: 'Minju Hong',
-  /** Shown under the name, above the email. */
-  affiliation: 'Language Technologies Institute, Carnegie Mellon University',
+  /** Research-interest line shown under the name, above the email. */
+  affiliation: 'Theoretical Machine Learning · Preference Learning · Learning in Games',
   emails: [
+    {
+      display: 'minju23 [at] alumni.kaist.ac.kr',
+      href: 'mailto:minju23@alumni.kaist.ac.kr',
+    },
     {
       display: 'minjuh [at] andrew.cmu.edu',
       href: 'mailto:minjuh@andrew.cmu.edu',
@@ -30,16 +34,16 @@ export const profile = {
 
   /** Masthead paragraphs. `html` is trusted, authored copy — not user input. */
   intro: [
-    'Hi! I am currently a Research Intern at the <a href="https://www.lti.cs.cmu.edu/" target="_blank" rel="noreferrer">Language Technologies Institute</a> at <a href="https://www.cmu.edu/" target="_blank" rel="noreferrer">Carnegie Mellon University</a>, working closely with <a href="https://maartensap.com" target="_blank" rel="noreferrer">Prof. Maarten Sap</a> and <a href="https://vasevarad.github.io" target="_blank" rel="noreferrer">Dr. Vasudha Varadarajan</a>. I completed my M.Sc. in <a href="https://ee.kaist.ac.kr/en/" target="_blank" rel="noreferrer">Electrical Engineering at KAIST</a> in 2026, advised by <a href="https://iids.kaist.ac.kr/" target="_blank" rel="noreferrer">Prof. Hye Won Chung</a>. Before that, I earned a B.Sc. in <a href="https://math.kaist.ac.kr/en/" target="_blank" rel="noreferrer">Mathematical Sciences</a> and <a href="https://ee.kaist.ac.kr/en/" target="_blank" rel="noreferrer">Electrical Engineering (double major)</a> at KAIST.',
-    'My research focuses on the <b>theoretical foundations of RLHF and preference learning, pluralistic LLM alignment, and optimization dynamics and implicit bias</b>. More broadly, I am interested in the mathematical foundations of machine learning, including theoretical questions in robustness and fairness and the mechanisms underlying language-model training and alignment.',
-    'Outside of research I love playing the violin and piano, and I enjoy planning and organizing social events.',
-    'Please feel free to reach out if you want to chat about research, potential collaborations, or anything else!',
+    'Hi! I\'m Minju Hong, interested in theoretical machine learning, particularly <span class="intro-emphasis">preference learning, RLHF, and game-theoretic learning</span>. My research focuses on theoretical guarantees and learning dynamics, with broader interests in alignment.',
+    'I received my M.Sc. in <a href="https://ee.kaist.ac.kr/en/" target="_blank" rel="noreferrer">Electrical Engineering</a> from <a href="https://www.kaist.ac.kr/en/" target="_blank" rel="noreferrer">KAIST</a> in 2026, advised by <a href="https://iids.kaist.ac.kr/" target="_blank" rel="noreferrer">Prof. Hye Won Chung</a>, and my B.Sc. in <a href="https://math.kaist.ac.kr/en/" target="_blank" rel="noreferrer">Mathematical Sciences</a> and <a href="https://ee.kaist.ac.kr/en/" target="_blank" rel="noreferrer">Electrical Engineering (double major)</a> from KAIST. I was also a research intern at the <a href="https://www.lti.cs.cmu.edu/" target="_blank" rel="noreferrer">Language Technologies Institute</a> at <a href="https://www.cmu.edu/" target="_blank" rel="noreferrer">Carnegie Mellon University</a>, working with <a href="https://maartensap.com" target="_blank" rel="noreferrer">Prof. Maarten Sap</a> and <a href="https://vasevarad.github.io" target="_blank" rel="noreferrer">Dr. Vasudha Varadarajan</a>.',
+    '<span class="phd-announce">I am applying to Ph.D. programs for Fall 2027 admission!</span>',
+    "Outside of research, I enjoy playing the violin and piano, as well as planning and organizing social events. Feel free to reach out if you'd like to chat about research, potential collaborations, or anything else!",
   ],
 
   /** Rendered as an icon + label row directly below the intro paragraphs. */
   links: [
     { icon: 'cv', label: 'CV', href: '/cv.pdf' },
-    { icon: 'email', label: 'Email', href: 'mailto:minju23@kaist.ac.kr' },
+    { icon: 'email', label: 'Email', href: 'mailto:minju23@alumni.kaist.ac.kr' },
     {
       icon: 'scholar',
       label: 'Google Scholar',

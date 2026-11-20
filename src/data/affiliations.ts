@@ -1,6 +1,6 @@
 /**
  * Affiliation timeline from the current CV. Follows the CV's own framing, which
- * lists the CMU visiting position alongside the degrees rather than separately.
+ * lists the CMU internship alongside the degrees rather than separately.
  *
  * Hansung Science High School is omitted: the CV has that entry commented out,
  * which reads as a deliberate choice to leave it off.
@@ -17,7 +17,7 @@ export interface Affiliation {
 
 export const affiliations: Affiliation[] = [
   {
-    period: 'May 2026 – Present',
+    period: 'May 2026 – Sep 2026',
     organisation: 'Carnegie Mellon University',
     role: 'Research Intern, Language Technologies Institute',
     detail: 'Pittsburgh, PA, USA',

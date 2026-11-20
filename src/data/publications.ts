@@ -11,6 +11,10 @@ export interface Publication {
   title: string
   /** Author list. The client's own name is matched against `authorName` below. */
   authors: string[]
+  /**
+   * Venue line. May include light HTML (e.g. `<b>` for the primary venue).
+   * Trusted, authored copy — not user input.
+   */
   venue: string
   href: string
   links: PubLink[]
@@ -18,6 +22,8 @@ export interface Publication {
   selected?: boolean
   /** Highlighted honour line, e.g. a best-paper award. */
   award?: string
+  /** Optional one-sentence research summary under the venue. */
+  summary?: string
 }
 
 /** Rendered bold + underlined wherever it appears in an author list. */
@@ -25,8 +31,8 @@ export const authorName = 'Minju Hong'
 
 /** Research blurb paragraphs. `html` is trusted, authored copy — not user input. */
 export const researchIntro = [
-  'I am interested in the theoretical foundations of <b>trustworthy and aligned machine learning</b>. My current research spans RLHF and preference learning, pluralistic alignment, and optimization dynamics and implicit bias. More broadly, I am interested in developing a mathematical understanding of learning and alignment mechanisms in modern language models, with particular interest in robustness and fairness.',
-  'Questions that motivate my research include: How can we learn reliably from heterogeneous, noisy, or conflicting preferences? How do optimization dynamics and parameterization determine which solutions learning algorithms select? How can we design learning and alignment methods with meaningful robustness and fairness guarantees?',
+  'My research interests lie at the intersection of theoretical machine learning, preference learning, and game-theoretic learning. I am particularly interested in how the structure of feedback, strategic interactions, and parameterization affects statistical efficiency, learning guarantees, and the behavior of learning algorithms.',
+  'My recent work includes regret analysis for online RLHF under general preferences, convergence and implicit bias of softmax learning dynamics, and personalized preference modeling for pluralistic LLM alignment.',
 ]
 
 export interface ResearchPosition {
@@ -43,26 +49,29 @@ export interface ResearchPosition {
  * which overlap. Reverse-chronological, one entry per position.
  *
  * Two CV entries are intentionally left out: the MAS467 course term project
- * (a taught course, not research), and a "Research Intern, May–Sep 2026"
- * entry that duplicates the graduate-assistant bullets and lists Prof. Chung
- * alongside Pittsburgh — it reads like a copy-paste slip. Worth a check.
+ * (a taught course, not research), and a duplicate "Research Intern" entry that
+ * listed Prof. Chung alongside Pittsburgh.
  */
 export const researchExperience: ResearchPosition[] = [
   {
     organisation: 'Carnegie Mellon University, Language Technologies Institute',
     href: 'https://www.lti.cs.cmu.edu/',
-    period: 'May 2026 – Present',
-    role: 'Visiting Researcher — Modeling Subjective Annotations in LLM Alignment',
+    period: 'May 2026 – Sep 2026',
+    role: 'Research Intern — Modeling Subjective Annotations in LLM Alignment',
     description: [
-      'Investigating methods for representing subjective human annotations. Supervised by Prof. Maarten Sap, mentored by Dr. Vasudha Varadarajan.',
+      'Implemented and evaluated latent preference models for capturing heterogeneity in human judgments, using ideal-point representations and pretrained reward models.',
+      'Analyzed the structure and interpretability of learned preference spaces, investigating patterns of agreement and disagreement across annotators.',
+      'Supervised by Prof. Maarten Sap; mentor: Dr. Vasudha Varadarajan.',
     ],
   },
   {
     organisation: 'OptiML Lab, KAIST AI',
     period: 'Mar 2026 – Present',
-    role: 'Research Collaboration — Implicit Bias and Learning Dynamics',
+    role: 'Research Collaboration — Convergence and Implicit Bias of Softmax Extragradient Dynamics',
     description: [
-      'Characterizing the learning dynamics and implicit regularization of policies. With Prof. Chulhee Yun, Changmin Kang, and Junghyun Lee.',
+      'Studied convergence and implicit bias of softmax-parameterized Euclidean extragradient dynamics in bilinear zero-sum games.',
+      'Derived sharp asymptotic decay rates for vanishing action probabilities and characterized their dependence on equilibrium margins.',
+      'With Prof. Chulhee Yun, Junghyun Lee, and Changmin Kang.',
     ],
   },
   {
@@ -71,16 +80,19 @@ export const researchExperience: ResearchPosition[] = [
     period: 'Mar 2024 – Feb 2026',
     role: 'Graduate Research Assistant',
     description: [
-      'M.S. research on regularized online RLHF under generalized bilinear preference models, contributing regret analyses for regularized self-play algorithms.',
-      'Investigated the theoretical foundations of order sensitivity in in-context learning. Advised by Prof. Hye Won Chung.',
+      'Studied regularized online RLHF under generalized bilinear preference models, including regret analysis for algorithms with general strongly convex regularizers.',
+      'Analyzed and adapted regret bounds from prior work, derived an eluder-dimension bound for the preference model, and developed supporting theoretical arguments.',
+      'Investigated the effects of example ordering on in-context learning in large language models, with a focus on underlying optimization mechanisms.',
+      'Advised by Prof. Hye Won Chung.',
     ],
   },
   {
-    organisation: 'Theoretical Foundations of AI Group, TU Munich',
+    organisation: 'Technical University of Munich, Theoretical Foundations of AI Group',
     period: 'Apr 2023 – Sep 2023',
-    role: 'Undergraduate Researcher — Information Spread Dynamics',
+    role: 'Undergraduate Researcher — Information Spread Dynamics in Networks',
     description: [
-      'Studied misinformation mitigation on graph networks, developing and evaluating blocker selection algorithms. Advised by Prof. Debarghya Ghoshdastidar.',
+      'Studied misinformation mitigation in graph networks and developed blocker-selection algorithms to limit information spread.',
+      'Advised by Prof. Debarghya Ghoshdastidar.',
     ],
   },
   {
@@ -89,22 +101,36 @@ export const researchExperience: ResearchPosition[] = [
     period: 'Mar 2021 – Dec 2022',
     role: 'Undergraduate Researcher — Random Graph Matching',
     description: [
-      'Independent study on random graph theory, investigating algorithmic strategies for matching in stochastic block models. Advised by Prof. Hye Won Chung.',
+      'Studied random graph matching and algorithmic recovery problems for stochastic block models through independent theoretical study.',
+      'Advised by Prof. Hye Won Chung.',
     ],
   },
 ]
 
 export const publications: Publication[] = [
   {
+    title:
+      'Convergence and Implicit Bias of Softmax Extragradient Flow in Bilinear Zero-Sum Games',
+    authors: ['Junghyun Lee*', 'Changmin Kang*', `${authorName}*`, 'Chulhee Yun'],
+    venue:
+      'Under review at ICLR 2027 · 15th Joint Conference of the Korean Artificial Intelligence Association (JKAIA 2026)',
+    href: 'https://openreview.net/forum?id=ZPZ9a2N05X',
+    selected: true,
+    summary:
+      'Studies convergence, sharp asymptotic rates, and implicit bias of extragradient dynamics in softmax-parameterized zero-sum games.',
+    links: [{ kind: 'paper', href: 'https://openreview.net/forum?id=ZPZ9a2N05X' }],
+  },
+  {
     title: 'Provably Efficient Regularized Online RLHF with Generalized Bilinear Preferences',
     authors: ['Junghyun Lee', authorName, 'Kwang-Sung Jun', 'Chulhee Yun', 'Se-Young Yun'],
-    venue: 'ICML 2026 Workshop on Pluralistic Alignment · CKAIA 2026',
+    venue:
+      '<b>NeurIPS 2026</b> · ICML 2026 Workshop on Pluralistic Alignment · 14th Conference of the Korean Artificial Intelligence Association (CKAIA 2026)',
     href: 'https://arxiv.org/abs/2602.23116',
     selected: true,
-    links: [
-      { kind: 'paper', href: 'https://arxiv.org/abs/2602.23116' },
-      { kind: 'code', href: 'https://github.com/minju-hong' },
-    ],
+    award: 'Distinguished Paper Award at CKAIA 2026',
+    summary:
+      'Establishes regret guarantees for regularized online RLHF under generalized, potentially intransitive preferences.',
+    links: [{ kind: 'paper', href: 'https://arxiv.org/abs/2602.23116' }],
   },
 ]
 

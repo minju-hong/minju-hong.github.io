@@ -8,9 +8,9 @@ export function News() {
       <ShowMore items={news} initial={5} step={5}>
         {(visible) =>
           visible.map((item, i) => (
-            <div key={item.date + i}>
+            <div key={(item.date ?? 'undated') + i}>
               <div className="update">
-                <b className="date">{item.date}</b>
+                <b className="date">{item.date ?? ''}</b>
                 <div>
                   {/* Authored copy, not user input. */}
                   <p dangerouslySetInnerHTML={{ __html: item.html }} />

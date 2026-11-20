@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import { Group, UnstyledButton } from '@mantine/core'
 import {
   authorName,
@@ -11,17 +11,26 @@ import {
 import { PUB_LINKS } from './Icons'
 import { DateRange } from './DateRange'
 
+function isOwnAuthor(author: string) {
+  return author.replace(/\*+$/, '') === authorName
+}
+
 /** Bolds and underlines the client's own name within the author list. */
 function Authors({ authors }: { authors: string[] }) {
+  const equalContribution = authors.some((author) => author.includes('*'))
+
   return (
-    <p className="pub-authors">
-      {authors.map((author, i) => (
-        <span key={author + i}>
-          {i > 0 && ', '}
-          {author === authorName ? <b className="own-name">{author}</b> : author}
-        </span>
-      ))}
-    </p>
+    <>
+      <p className="pub-authors">
+        {authors.map((author, i) => (
+          <span key={author + i}>
+            {i > 0 && ', '}
+            {isOwnAuthor(author) ? <b className="own-name">{author}</b> : author}
+          </span>
+        ))}
+      </p>
+      {equalContribution && <p className="pub-footnote">* Equal contribution</p>}
+    </>
   )
 }
 
@@ -32,12 +41,14 @@ function PubRow({ pub }: { pub: Publication }) {
         {pub.title}
       </a>
       <Authors authors={pub.authors} />
-      <p className="pub-venue">{pub.venue}</p>
+      {/* Venue may include authored HTML (e.g. bold primary venue). */}
+      <p className="pub-venue" dangerouslySetInnerHTML={{ __html: pub.venue }} />
       {pub.award && (
         <p className="pub-award">
           <span aria-hidden="true">🏅</span> {pub.award}
         </p>
       )}
+      {pub.summary && <p className="pub-summary">{pub.summary}</p>}
       <Group className="pub-links" gap="xs">
         {pub.links.map((link) => {
           const { icon: Icon, label } = PUB_LINKS[link.kind]
@@ -60,8 +71,10 @@ function PubRow({ pub }: { pub: Publication }) {
 }
 
 export function Research() {
-  const [view, setView] = useState<'selected' | 'all'>('selected')
-  const shown = view === 'selected' ? publications.filter((p) => p.selected) : publications
+  // Selected / All filter — kept for easy restoration.
+  // const [view, setView] = useState<'selected' | 'all'>('selected')
+  // const shown = view === 'selected' ? publications.filter((p) => p.selected) : publications
+  const shown = publications
 
   return (
     <>
@@ -70,6 +83,10 @@ export function Research() {
       ))}
 
       <Group className="pub-toggle" gap="xs">
+        <UnstyledButton className="toggle-button" data-active="true">
+          Publications
+        </UnstyledButton>
+        {/*
         {(['selected', 'all'] as const).map((option) => (
           <UnstyledButton
             key={option}
@@ -80,6 +97,7 @@ export function Research() {
             {option === 'selected' ? 'Selected' : 'All'}
           </UnstyledButton>
         ))}
+        */}
       </Group>
 
       <div id="pubs">
